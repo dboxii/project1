@@ -1,3 +1,38 @@
 lorem ipsum
 
 Changes made later
+
+Http --> REST model
+|  \
+|   \
+v    \
+Web se\rvices
+       \
+	V
+	REST-like design moethodology
+
+REST -how you interact with resourses, building of URL in paricular way, accessing resourses (loose definition)
+
+EG: /video/1 then property:/video/1/duration 
+or /video - returns all videos
+
+REST-based API that  defined in specific way like above
+
+Apply GET to /video || PUT to /video to (create or) replace resourse || POST create new video and added to videos
+
+//////////////////////////////////////////////////////////////////////////////
+HTTP - client driven protocol for communication
+hence - multi-client talk is hindered
+:: lets user refresh information for client.
+:::polling server thru intervals - > could be waste of server productivity 
+::::WEB SOCKETS used for pushing msg to client
+
+
+//////////////////////////////////////////////////
+push notification==google cloud meassaging (GCM)
+XMPP protocol are used for Client +GCM, size of message equal 4Kb
+some feature: registration ID; communication goes between GCM and Server and then with CLient
+
+
+
+
