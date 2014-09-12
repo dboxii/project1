@@ -1,1 +1,23 @@
 ////working on server side with objects///
+task to take object and store it in database usually as Multipart file
+to do this we have to marshall ( map ) object in format that database accepts (like rows and columns, tables )
+
+Object relational mapping (ORM) 
+
+Tool is a Framework - JAVA Persistance API (JPA)
+Idea : annotate object so telling how to store them in DB
+
+Create java class with JPA annotaions for instances of this class
+
+@Entity // declaration that this is persistant object
+
+public class Video {
+
+@Id  // declaration of uniqness for this member that is necessary for database search
+private long video_number;
+
+private String name_of_video;
+
+
+}
+@GeneratedValue (strategy=GenerationTyp.Auto) // Expecting JPA to act and insert ID
