@@ -1,0 +1,24 @@
+/////////////////////////////Retrofit//////////////////////////////////////////
+Annotates interface methods
+When call happens in Java to a methods annotated with retrofit, retrofit comes in play to perform actions @.
+eg @GET ("/video") -
+when user calls gt method for path video retrofit converts method below it to a JSON
+
+@FormUrlEncoded
+@POST ("/video")
+public 
+@Field("name") String name;
+@Field("url") String url;
+
+Then for the Reftrofit Adapter we must create REST adapter
+RestAdapter adapt=new RestAdapter.Builder()
+here we tell it where server is .setEndPoint ("http://localhost)
+				.build();
+
+After we creating object (java class) that implements R@ interface
+Video svc=adapt.create(VideoSvc.class);
+then to get a list of videos(actually converting String vidoes into Http request that must be recognized on the "other end" and returned acc. to impl.
+String videos=svc.getVideos();
+
+
+RETROFIT operates on the client side::SPRING Framewrk - on the server side
