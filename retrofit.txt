@@ -22,3 +22,27 @@ String videos=svc.getVideos();
 
 
 RETROFIT operates on the client side::SPRING Framewrk - on the server side
+
+@AutoWired - SPRING @ that tells Spring to look in configuration? dependancy injections (bean of specific type for var, obj) and instatiate it to object annotated with @AutoWired
+E.G. @AutoWired
+	private UserManager users;
+
+In Spring configuration? is manually written class that maps specific object to Autowired - i.e. APPLICATION (launcher)
+
+@Configuration
+
+@Bean				// SPring gonna call all methods annotated with @Bean to get dependant objects to a controller @AutoWired ones.
+public class UserConf {
+public UserManager usermanager{
+return new user}
+
+So configuration is being written for particular application
+By default Spring calls config only once so all other same objects in controller is they are receives same spec.instance from config.
+
+///searching for iplemntation of controller interfaces in configuration//
+@ComponentScan({/*define package names or prefixes like*/"com.mobile"}
+SPRING looks for code annotated with @Controller or @Service - the latter should be added to your class if it has implementation for interface
+
+Together with @ComponentScan goes @EnableAutoConfiguration
+
+So @Bean ties @Autowired Interface to specific class that implements this interface in Application (Configuration) java class
