@@ -25,14 +25,25 @@ HTTP - client driven protocol for communication
 hence - multi-client talk is hindered
 :: lets user refresh information for client.
 :::polling server thru intervals - > could be waste of server productivity 
-::::WEB SOCKETS used for pushing msg to client
+::::WEB SOCKETS sed for pushing msg to client
 
 
 //////////////////////////////////////////////////
 push notification==google cloud meassaging (GCM)
 XMPP protocol are used for Client +GCM, size of message equal 4Kb
 some feature: registration ID; communication goes between GCM and Server and then with CLient
+///////////////
 
+Servlets (Java objects) nested inside Web Container and are handling incoming Http requests.
+Web.xml serves for routing purpose, routing requests to specific servlets.
 
+Stages of servlet work :
+Http-->Java--->check and correct values--> conversion of data-->Logic (eg Video Added)
+
+Preference for work is to deal only with: Http-->Logic
+//////////////////////////////////
+///////////////////////////
+
+dont trust client data : injection attacks  : allow only certain things - validate data
 
 

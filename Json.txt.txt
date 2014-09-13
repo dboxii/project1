@@ -1,0 +1,163 @@
+Communication between client device and server.
+Expressing objects in Http format 
+J ava S cript O bject N otation  
+Objects in textual format
+
+{ 
+/*express properties keys values--
+"name: "Jules";
+"classofMooc": "coursera;
+"university": "wandy";
+
+"mobilescloude":{
+/*objects could be nestsed*/
+"date":["cccccc","day2", "day3"]; /*here is array notation*/
+"url":" http:///";}
+"cost":40;
+
+
+
+}
+
+
+XML also could be used but JSON more condensed.
+//////////////////SPRING   framework   //////////////////////
+
+DATA MARSHALLING  - extracting params to object via Object Mapping.
+
+DISPATCHER service =>servlet => its 2nd layer routing (like web.xml) that routs to Controller
+So its routs certain parameters right to methods inside certain servlets
+(maps request path to particular method) looks if http req params fits to method argums
+
+registering Controller - java object to handle request via simple methods like
+update Balance ();
+////SPRING CONTROLLERS for DISPATCH//////////
+
+
+SIMPLE JAVA object
+
+@Controller
+public class ContactsCtrl{
+
+@RequestMapping("/contacts")
+
+
+public Contacts getContacts(){
+//do smt to retrieve contacts
+Contacts c=...;
+return c;
+
+}
+
+@RequestMapping("/friends") //here http request will be routed if it will contains path /friends.
+public Contacts friends(){
+
+}
+
+}
+/////PARAMETER Annotations in SPRING////
+Example: User want to find smd via first letters on Object Contacts
+
+@Controller
+public class ContactsCtrl{
+
+@RequestMapping ("/search")
+public Contacts search{
+@RequstParam("search")	string searchstring;
+
+//below flag is passed as string SO DispatcherService will convert it to type Int for you
+@RequstParam("flag") 	int searchflag;// search in first or last name
+
+}
+
+/////Path Variable Annotations in SPRING////
+
+//lets make response that return all contacts beginining with A on request: /search/a
+
+it will look nice and clean
+
+So we must be able to translate request path not params in it
+it will look like this
+
+@RequestMapping ("search/{str}") //so anyting in requst path will be routed here
+Then here we telling dispatcher what to do with it {str}
+@PathVar("str") string searchstring;
+
+
+/////BODY Annotations in SPRING////
+
+CAN extract entire body(smt more complex then string like java object) and path them in as method parameters
+
+
+Lets say there is object Search
+
+public class Search{
+private String firstname 	;
+private String lastname;
+
+//getters and setters
+//regular expression match method and son on
+
+}
+
+So in spring search param could be object
+
+@RequestMapping ("/search")
+Search s;
+
+To tell dispatcher that http request params are instanses of object Search :
+@RequestBody Search s;
+
+SPRING HTTP Msg Converter Maps params to methods getters and setters: Automatic Data Marshalling
+
+//////////////MULTIPART DATA REQUEST////////////
+
+Get a hook ("data") and process it
+@RequestParam ("data")
+MultipartFile videoData;
+InptuStream in=videodata.getInputStream();
+then stream input to another method
+
+
+you need to add a method that returns MultipartConfigElement via->getMultipartConfig
+and should be annotated with 
+
+@Bean
+
+MultipartConfigFactory f=f.setMaxFileSize(2000);// so we describe our expactation on file to be received.
+return f.createMultiPartConfig();
+
+above boilercodeplate is generic;
+
+////Returning Response to a client in SPRING/////////////
+
+Use @ResponseBody in front of method so client receives JSON objects
+
+
+///////////////////////CONVERSION///////////////
+
+Jackson - Object Mapper for JSON
+
+Lets say thereis application
+
+public class Video {
+
+private String title;
+private String url;
+private long duration;
+
+public String getTitle(title)
+return this.titlle;
+
+public void setTitle
+
+}
+and there is file JSON
+"
+{"title":"Coursera";
+duration":"05:06:07";
+url":"http://coursera.com
+}"
+
+Buy default for Jackson a class should have constructor w/o arguments
+@JsonIgnore
