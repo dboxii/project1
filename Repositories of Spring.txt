@@ -1,16 +1,43 @@
 Store Find Retrieve -- Tasks with @Entity ie Persistance Object in DB
 For this for JPA in Spring REPOSITORY should be created --> Interface
 
+@Repository
 public interface VideoRepo extend CRUDREPOSITORY<Video, long>{
 //Crud - create, read, update, delete objects		 ^	
 							  \unique id
 
 //search must be possible to perform on diff variable not only by unque id
-public Lisr<Video> findByName(String name);//findBy -is Spring prefix and Name is name of Vatriable of the Video class
+public Lisr<Video> findByName(String name);//findBy -is Spring prefix and Name is name of Variable of the Video class
 
-public Lisr<Video> findByNameAndCategory(String name, String category)
+public List<Video> findByNameAndCategory(String name, String category)
 
 }
 
 /////////////
 SQL injection attack = Do NOt MIX parameters and logic ie. do not let direct insertion request into Sql request.
+
+Look in detail on example 5 
+Engaging repo in Application class
+@EnableJpaRepositories(basePackageClasses = VideoRepository.class)
+
+Adding @BEan for Autowired members not required
+
+ findByName(String title);- Spring auto create SQL request to DB
+
+
+//////Spring Data Rest//// Automatic routing client GET POST PUT DELETE to DB located eg at "/video"
+
+To use it in Repository Interface we add on top
+@RepositoryRestResourse (collectionResourseRelation "videos";
+path="video")
+
+Second is necessary to establish in Application java a configuration
+@Import({RepositoryRestMVCConfiguration})
+
+
+@EnableJPARepositories
+
+
+/////Example 6 Spring DATA Rest API walktru//////
+Implementation of methods on videos was taken by VideoRepository.class
+so Controller clas file was eliminated from package 
