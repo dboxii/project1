@@ -1,0 +1,80 @@
+/*Objects --Understanding the behavior of each of these types of uses requires thinking in terms of
+references, not values, as you will see when we consider them, in turn.
+
+/*a static method
+call starts with a class name (uppercase, by
+convention) and a non-static method call
+always starts with an object name (lowercase,
+by convention).
+
+////so pay attention here!).///
+/*aliasing: assignment statement with a reference type creates a copy
+of the reference.the reference is copied (not the value).
+
+/*arrays are objects.
+
+/*A data type is a set of values and a set of operations defined on those values.We
+implement data types in independent Java class modules and write client programs
+that use them.
+
+/*An object is an entity that can take on a data-type value or an instance of a data type.essential properties: state, identity, and
+behavior. p73
+
+/*Java language has thousands of built-in
+ADTs abstract data types
+
+/*emphasize that you
+do not need to know the details of an ADT implementation in order to be able to use it.
+
+/////////////////////////////////
+/*computational geometry - ---Programs that process geometric objects have wide
+application in computing with models of the natural world,
+in scientific computing, video games, movies
+
+/*The idea is to define data types that allow us to keep information in
+objects that correspond to things in the real world Whether it be a bank processing millions of credit card transactions
+or a web analytics company processing billions of touchpad taps or a scientific
+research group processing millions of experimental observations, a great many
+applications are centered around processing and organizing information.
+/////////////////////////////////
+
+
+/*Java’s convention that enables clients
+to print a string representation of every value if we include toString() implementation
+in a data type.
+
+Calling instance of the oject(indicating its name) in Stdprt returns value of object method to String 
+
+/* IF length of object is N then to process it as Array (in loop for instance) takes N-1 actions. 
+
+/*method signature: specifies its name and the types and names of its
+parameter variables),
+
+/////////////this. EXPLAINED ////////////////p87
+
+/*The purpose of the API is to separate clients from implementations,
+to enable modular programming.
+
+/*What operations do clients need to perform, and what data-type values can best support
+those operations? These basic decisions are at the heart of every implementation
+that we develop p90
+
+/* API motto: provide to clients
+the methods they need and no others.
+1.2 ¦ Data Abstraction 97
+
+/*generics, also known
+as parameterized types Stack<Items>
+
+stack.push(17); // auto-boxing (int -> Integer)
+int i = stack.pop(); // auto-unboxing (Integer -> int)
+
+/*Iteration: process
+each of the items in some way, or to iterate through the items in the collection
+
+If the collection is iterable, the client can print a transaction list with a single statement:
+Queue<Transaction> collection = new Queue<Transaction>();
+for (Transaction t : collection)
+{ StdOut.println(t); }
+This construct is known as the foreach statement
+
