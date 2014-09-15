@@ -1,0 +1,34 @@
+Multiple mobile clients talk to servlet
+
+Session - ongoing dialog of servlet and mobdev - maintaining it.
+
+Described by: duration, type of maintaining infromation.
+////Implementation is standart and should be so.//
+
+Session library : 
+--send back to Mobdev cookie info (id  - cryptographic token)
+-all info is storing on the server side (or just sensitive one)
+
+Http  is a plain text "talk"
+Https - encrypted via public key and private key lock-unlock or vv
+
+Certificated Authority has a private key that is trusted
+Client and Server has a public keys for CA 
+CA is "signing"(crypting) these public keys issuing Certificates.
+Exchange of keys happens only at the begining of "talk"
+
+
+
+2 categories data : for Everyone(Put, post, delete:http), Restricted (https:admin access, or user email)
+
+Client 1st request : https /login with user, password
+Server (OK case): response with cookie_1(so cookie_1 assosiated with this client)
+
+Client 2nd request: goes with cookie_1
+
+///SPRING security///
+	https	|Springsecurity filter (object)|
+Client---------	------------------------------->Dispather servlet------->Controller
+		|
+Handle  Login session and cookie checking
+We just need to tell spring that a controller is sensitive
