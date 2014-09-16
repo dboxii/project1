@@ -32,3 +32,66 @@ Client---------	------------------------------->Dispather servlet------->Control
 		|
 Handle  Login session and cookie checking
 We just need to tell spring that a controller is sensitive
+Spring can assosiates users with roles
+
+--------------------------Annotation---------------
+@Controller
+public class VideoSvc{
+
+
+//sensitive method
+@PreAuthorize("hasRole(admin)")
+public void upload {}
+
+}
+
+
+--------establishing a client and his role---
+/ user details service Inteface / where spring lookup user by name (after login form page or (in https) ?basic authentification mechanism)
+
+?hash value of the password
+
+
+-------Access to user details (name)----------
+Pricipal - current user account
+
+@Controller
+public class VideoSvc{
+
+
+//sensitive method
+@PreAuthorize("hasRole(user)")
+public boolean upload (...., Principal p, ...){
+
+String user=p.getName();
+
+Video.setUser(user);
+}
+
+
+OR it could be achived via Configuration where method should be marked as Required full authentification
+}
+//////via  built in information in an object//
+
+@PreAuthorize("#v.owner=principal.name)
+public boolean upload (...., ){}
+
+public class Video {
+private String owner;
+public String getOwner(){};
+
+}
+
+}
+//////
+Let server decide what app should and shouln;t have access
+
+//////OAuth 2.0///
+
+*Finer control over resourses and user' accounts
+*revoke access to individual apps
+*Chnaging a password w/o revoking access to all apps ( or vv)
+*doesn't require user name and pass for app
+
+
+Based on providing "valet key " to an app
