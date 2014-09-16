@@ -78,3 +78,12 @@ for (Transaction t : collection)
 { StdOut.println(t); }
 This construct is known as the foreach statement
 
+What is an iterator? An object from a class that implements the methods hasNext()
+and next(), as defined in the following interface (which is in java.util.Iterator):
+***************************Page 187************************************
+
+To save time and money algorithms: 
+develop logarithmic,
+linear(single loop), and linearithmic algorithms for
+fundamental problems.
+*********************************************
