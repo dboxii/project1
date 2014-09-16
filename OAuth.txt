@@ -1,0 +1,42 @@
+//////OAuth 2.0///
+
+*Finer control over resourses and user' accounts
+*revoke access to individual apps
+*Chnaging a password w/o revoking access to all apps ( or vv)
+*doesn't require user name and pass for app
+
+
+Based on providing "valet key " to an app
+
+///what are create "valet key"//
+
+-Resourse server(spring controller, db, application)
+- Authorisation server
+-client, who's getting acess to resourse
+-User (owner) of resourse.
+
+Client--->/oauth/token -->Auth.server---->User (login form)
+*__________________________________________________|
+Client pass to authserver via POST Body request encoded in URL :
+name, pass, client_id, grant_type=pass, scopes (what client can do)
+
+?Http Basic -for client (here pass isEmpty)
+
+token like 'valet key' is Returned to client for further access to Resourses.
+
+/oauth/token contains Header for authorisation is :
+Authorization :Basic (username:password) <- is encoded
+
+/////TOKENs////HTTPs
+So Spring Security filter is looking for a Token.
+Client send 
+POST request "/video " to VideoSvc
+ with Auth. Header Bearer+token.
+ This operation is being monitored by Authentification server.
+
+///Configuring existing Spring Security implementation.//
+Auth.Server - controller provided by Spring.
+ /oauth/token -is the filter
+
+
+
